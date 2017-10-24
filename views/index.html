@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="../controller.js"></script>
+</head>
+<body>
+  <div ng-app="onlineTester" ng-controller="testing">
+    <h2>Start your online test</h2>
+    <input type="text" name="email" ng-model="email" placeholder="Enter Email Id">
+    <a href="javascript:void(0)" ng-click="start()">Click To Start</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="../controller.js"></script>
+</head>
+<body>
+  <div ng-app="onlineTester" ng-controller="testing">
+    <h2 ng-if="score">Total Score: {{score}}</h2>{{timer}}
+    <a href="javascript:void(0)" ng-click="logout()">Logout</a>
+    <ol>
+      <li ng-repeat="question in questions" ng-init="nameroot= $index">
+        <h6>{{question.question}}</h6>
+        <div ng-repeat="opt in question.option">
+          <label><input type="radio" name="input{{nameroot}}" ng-model="answers[nameroot]" value="{{opt}}">{{opt}}</label>
+
+        </div>
+        <span ng-if="rightAns[nameroot] == answers[nameroot] && rightAns[nameroot] != '' && rightAns[nameroot] != undefined" style="color: green;">Answer: {{rightAns[nameroot]}}</span>
+        <span ng-if="rightAns[nameroot] != answers[nameroot] && rightAns[nameroot] != '' &&  rightAns[nameroot] != undefined" style="color: red;">Answer: {{rightAns[nameroot]}}</span>
+      </li>
+    </ol>
+    <a href="javascript:void(0)" ng-click="submitQuestion()" ng-if="!rightAns">Submit</a>
+  </div>
+</body>
+</html>
